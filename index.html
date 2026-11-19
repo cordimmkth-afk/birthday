@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 🎂💙</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef7ff;
+            color: #183b56;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================== */
+
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: linear-gradient(
+                180deg,
+                #bde0fe,
+                #eaf6ff
+            );
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .small-text {
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #286090;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #1677c8;
+            margin-bottom: 10px;
+
+            animation: pop 1.5s ease;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+            color: #245b7a;
+            margin-bottom: 25px;
+        }
+
+        @keyframes pop {
+
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+
+/* =========================
+   SIMPLE CAKE
+========================== */
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 190px;
+    margin: 25px auto;
+}
+
+/* Bottom layer */
+.cake-bottom {
+    position: absolute;
+    left: 25px;
+    top: 95px;
+    width: 170px;
+    height: 55px;
+    background: #4a9fe3;
+    border-radius: 8px 8px 15px 15px;
+}
+
+/* Top layer */
+.cake-middle {
+    position: absolute;
+    left: 40px;
+    top: 55px;
+    width: 140px;
+    height: 50px;
+    background: #72bdf4;
+    border-radius: 12px 12px 8px 8px;
+}
+
+/* White frosting */
+.cake-top {
+    position: absolute;
+    left: 40px;
+    top: 45px;
+    width: 140px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Candle */
+.candle {
+    position: absolute;
+    left: 104px;
+    top: 10px;
+    width: 12px;
+    height: 40px;
+    background: white;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+/* Flame */
+.flame {
+    position: absolute;
+    left: -6px;
+    top: -27px;
+    font-size: 24px;
+    animation: flicker 0.7s infinite alternate;
+}
+
+@keyframes flicker {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .button {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            background: #1677c8;
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+
+            box-shadow:
+                0 5px 15px rgba(22, 119, 200, 0.3);
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #0e5f9f;
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 70px 20px;
+
+            text-align: center;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+        section h2 {
+            color: #1677c8;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           MESSAGE BOX
+        ========================== */
+
+        .message-box {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            max-width: 500px;
+
+            margin: auto;
+
+            box-shadow:
+                0 5px 20px rgba(30, 100, 150, 0.12);
+
+            line-height: 1.7;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           SECRET MESSAGE
+        ========================== */
+
+        #secretMessage {
+            display: none;
+
+            margin-top: 25px;
+
+            animation: appear 0.8s ease;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           PHOTOS
+        ========================== */
+
+        .photos {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px;
+
+            max-width: 500px;
+
+            margin: auto;
+        }
+
+        .photo {
+            width: 100%;
+            height: 180px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 15px rgba(30, 100, 150, 0.12);
+        }
+
+        .photo:last-child {
+            grid-column: span 2;
+            height: auto;
+            object-fit:contain;
+        }
+
+
+        /* =========================
+           WISHES
+        ========================== */
+
+        .wish {
+            background: white;
+
+            margin: 15px auto;
+
+            padding: 18px;
+
+            max-width: 450px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 12px rgba(30, 100, 150, 0.08);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #bde0fe;
+
+            color: #245b7a;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .cake {
+                transform: scale(0.9);
+            }
+
+            section h2 {
+                font-size: 27px;
+            }
+
+            .message-box {
+                font-size: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <div class="hero">
+
+        <div class="small-text">
+            ✨ A pumpkin was born today!! ✨
+        </div>
+
+        <h1>
+            Happy Birthday!
+        </h1>
+
+        <h2>
+            Iahun Bhabriew 🎂💙
+        </h2>
+
+
+        <!-- CAKE -->
+
+       <div class="cake">
+
+    <div class="candle">
+        <div class="flame">🔥</div>
+    </div>
+
+    <div class="cake-top"></div>
+
+    <div class="cake-middle"></div>
+
+    <div class="cake-bottom"></div>
+
+</div>
+
+
+        <p>
+            Someone is getting older and older! 💙
+        </p>
+
+
+        <button
+            class="button"
+            onclick="scrollToMessage()">
+
+            🎁 Open Your Surprise
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         MESSAGE
+    ========================== -->
+
+    <section id="message">
+
+        <h2>
+            💌 A Little Message
+        </h2>
+
+        <div class="message-box">
+
+            <p>
+                Happy Birthday, <b>Bhabriew </b>! 🎂💙
+            </p>
+
+            <br>
+
+            <p>
+                May god bestow his blessings upon you. 
+                May he gives you a long life, good health, and happiness.
+                May he fulfills all your dreams and wishes.
+                May he also makes your salary increase  more and more so i can spend it more too
+                i know you already know that you're old but let me take this moment to remind you more than you're old 
+                and will soon become an old man in just a few more years.
+            
+            </p>
+
+            <br>
+
+            <p>
+                I hope your special day is filled
+                with happiness, laughter,
+                beautiful memories, and lots of cake! 🎉🍰
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PHOTOS
+    ========================== -->
+
+    <section>
+
+        <h2>
+            📸 Little Memories
+        </h2>
+
+        <div class="photos">
+
+            <img
+                class="photo"
+                src="1.jpeg"
+                alt="Birthday decoration"
+            >
+
+            <img
+                class="photo"
+                src="2.jpeg"
+                alt="Birthday cake"
+            >
+
+            <img
+                class="photo"
+                src="3.jpeg"
+                alt="Birthday balloons"
+            >
+
+        </div>
+
+        <p style="margin-top:20px;">
+            More memories to come... 📷💙
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         WISHES
+    ========================== -->
+
+    <section>
+
+        <h2>
+            🌊 Birthday Wishes
+        </h2>
+
+
+        <div class="wish">
+            🌟 May your year be full of beautiful moments.
+        </div>
+
+
+        <div class="wish">
+            💙 May you always have reasons to smile.
+        </div>
+
+
+        <div class="wish">
+            🎯 May you achieve everything you're working toward.
+        </div>
+
+
+        <div class="wish">
+            🌈 May every new day bring something wonderful.
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SECRET SURPRISE
+    ========================== -->
+
+    <section>
+
+        <h2>
+            🎁 One More Surprise
+        </h2>
+
+
+        <button
+            class="button"
+            onclick="showSecret()">
+
+            💙 Click Me
+
+        </button>
+
+
+        <div
+            id="secretMessage"
+            class="message-box">
+
+            <h3>
+                ✨ SURPRISE! ✨
+            </h3>
+
+            <p>
+                Happy Birthday once again! 💙🎉
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Made with 💙 from Khrawkupar Muktieh
+        </p>
+
+        <p>
+            🎂 Happy Birthday! 🎂
+        </p>
+        
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* Scroll to message */
+
+        function scrollToMessage() {
+
+            document
+                .getElementById("message")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        /* Show surprise */
+
+        function showSecret() {
+
+            const message =
+                document.getElementById("secretMessage");
+
+            message.style.display = "block";
+
+            createConfetti();
+
+        }
+
+
+        /* =========================
+           FLOATING EFFECTS
+        ========================== */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.classList.add("heart");
+
+
+            const symbols = [
+                "💙",
+                "💎",
+                "🩵",
+                "✨",
+                "⭐",
+                "🦋"
+            ];
+
+
+            heart.innerHTML =
+                symbols[
+                    Math.floor(
+                        Math.random() * symbols.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.animationDuration =
+                (4 + Math.random() * 4) + "s";
+
+
+            heart.style.fontSize =
+                (15 + Math.random() * 20) + "px";
+
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 8000);
+
+        }
+
+
+        setInterval(createHeart, 700);
+
+
+
+        /* =========================
+           CONFETTI
+        ========================== */
+
+        function createConfetti() {
+
+            for (let i = 0; i < 80; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+
+                confetti.innerHTML = "🎉";
+
+
+                confetti.style.position = "fixed";
+
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                confetti.style.top = "-20px";
+
+
+                confetti.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+
+                confetti.style.zIndex = "9999";
+
+
+                confetti.style.pointerEvents =
+                    "none";
+
+
+                document.body.appendChild(confetti);
+
+
+                const fall =
+                    confetti.animate(
+
+                        [
+                            {
+                                transform:
+                                    "translateY(0) rotate(0deg)"
+                            },
+
+                            {
+                                transform:
+                                    "translateY(110vh) rotate(720deg)"
+                            }
+                        ],
+
+                        {
+                            duration:
+                                2000 +
+                                Math.random() * 2500,
+
+                            easing: "linear"
+                        }
+
+                    );
+
+
+                fall.onfinish = () => {
+
+                    confetti.remove();
+
+                };
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
